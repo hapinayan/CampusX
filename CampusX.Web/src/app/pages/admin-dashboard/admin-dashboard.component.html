@@ -1,0 +1,403 @@
+<div class="admin-dashboard">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brand-icon">CX</div>
+
+      <div>
+        <h2>CampusX</h2>
+        <span>Admin Portal</span>
+      </div>
+    </div>
+
+    <nav class="menu">
+
+      <a class="menu-item active">
+        <span>🏠</span>
+        Dashboard
+      </a>
+
+      <a
+        class="menu-item"
+        (click)="goToStudents()"
+      >
+        <span>👥</span>
+        Students
+      </a>
+
+      <a class="menu-item">
+        <span>🏢</span>
+        Hostel
+      </a>
+
+      <a class="menu-item">
+        <span>💻</span>
+        Lab Reservations
+      </a>
+
+      <a class="menu-item">
+        <span>📅</span>
+        Events
+      </a>
+
+      <a class="menu-item">
+        <span>💬</span>
+        Complaints
+      </a>
+
+      <a class="menu-item">
+        <span>📄</span>
+        Certificates
+      </a>
+
+      <a class="menu-item">
+        <span>💳</span>
+        Fee Payments
+      </a>
+
+      <a class="menu-item">
+        <span>🔔</span>
+        Notifications
+      </a>
+
+    </nav>
+
+    <button
+      class="logout-button"
+      (click)="logout()"
+    >
+      ↪ Logout
+    </button>
+
+  </aside>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+
+      <div>
+        <h1>Admin Dashboard</h1>
+        <p>Manage CampusX university services</p>
+      </div>
+
+      <div class="topbar-right">
+
+        <button class="notification-button">
+          🔔
+          <span class="notification-dot"></span>
+        </button>
+
+        <div class="admin-profile">
+
+          <div class="avatar">
+            {{ fullName.charAt(0) }}
+          </div>
+
+          <div>
+            <strong>{{ fullName }}</strong>
+            <span>CampusX Admin</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- WELCOME -->
+    <section class="welcome-card">
+
+      <div class="welcome-text">
+
+        <span class="welcome-label">
+          ADMINISTRATION PORTAL
+        </span>
+
+        <h2>
+          Welcome back, {{ fullName }} 👋
+        </h2>
+
+        <p>
+          Manage students and monitor CampusX services
+          from one secure administration portal.
+        </p>
+
+        <button
+          type="button"
+          (click)="goToStudents()"
+        >
+          Manage Students
+        </button>
+
+      </div>
+
+      <div class="welcome-icon">
+        🛡️
+      </div>
+
+    </section>
+
+
+    <!-- STAT CARDS -->
+    <section class="stats-grid">
+
+      <!-- TOTAL STUDENTS -->
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          👥
+        </div>
+
+        <div>
+          <span>Total Students</span>
+
+          <h3>
+            {{ totalStudents }}
+          </h3>
+
+          <p>Registered students</p>
+        </div>
+
+      </div>
+
+
+      <!-- ACTIVE STUDENTS -->
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          ✅
+        </div>
+
+        <div>
+          <span>Active Students</span>
+
+          <h3>
+            {{ activeStudents }}
+          </h3>
+
+          <p>Active accounts</p>
+        </div>
+
+      </div>
+
+
+      <!-- INACTIVE STUDENTS -->
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          🚫
+        </div>
+
+        <div>
+          <span>Inactive Students</span>
+
+          <h3>
+            {{ inactiveStudents }}
+          </h3>
+
+          <p>Inactive accounts</p>
+        </div>
+
+      </div>
+
+
+      <!-- NOTIFICATIONS -->
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          🔔
+        </div>
+
+        <div>
+          <span>Notifications</span>
+
+          <h3>--</h3>
+
+          <p>System notifications</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MANAGEMENT -->
+    <section class="management-section">
+
+      <div class="section-title">
+
+        <h2>Administration</h2>
+
+        <p>
+          Quick access to CampusX management services
+        </p>
+
+      </div>
+
+
+      <div class="management-grid">
+
+        <!-- STUDENT MANAGEMENT -->
+        <div class="management-card">
+
+          <div class="card-icon">
+            👥
+          </div>
+
+          <h3>
+            Student Management
+          </h3>
+
+          <p>
+            Search students, view profiles and manage
+            student account status.
+          </p>
+
+          <button
+            type="button"
+            (click)="goToStudents()"
+          >
+            Manage Students →
+          </button>
+
+        </div>
+
+
+        <!-- CAMPUS FACILITIES -->
+        <div class="management-card">
+
+          <div class="card-icon">
+            🏢
+          </div>
+
+          <h3>
+            Campus Facilities
+          </h3>
+
+          <p>
+            Monitor hostel applications and
+            laboratory reservations.
+          </p>
+
+          <button type="button">
+            View Facilities →
+          </button>
+
+        </div>
+
+
+        <!-- STUDENT SERVICES -->
+        <div class="management-card">
+
+          <div class="card-icon">
+            📋
+          </div>
+
+          <h3>
+            Student Services
+          </h3>
+
+          <p>
+            Monitor complaints, certificates,
+            events and fee requests.
+          </p>
+
+          <button type="button">
+            View Services →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOTTOM SECTION -->
+    <section class="bottom-grid">
+
+      <!-- RECENT ACTIVITY -->
+      <div class="activity-card">
+
+        <div class="card-header">
+
+          <h3>
+            Recent Activity
+          </h3>
+
+          <a>
+            View All
+          </a>
+
+        </div>
+
+        <div class="empty-state">
+
+          <span>
+            📊
+          </span>
+
+          <h4>
+            No recent activity
+          </h4>
+
+          <p>
+            Recent CampusX administrative activity
+            will appear here.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- SYSTEM STATUS -->
+      <div class="system-card">
+
+        <div class="card-header">
+
+          <h3>
+            System Status
+          </h3>
+
+        </div>
+
+        <div class="status-row">
+
+          <div>
+            <span class="status-dot"></span>
+            CampusX API
+          </div>
+
+          <strong>
+            Online
+          </strong>
+
+        </div>
+
+        <div class="status-row">
+
+          <div>
+            <span class="status-dot"></span>
+            Student Services
+          </div>
+
+          <strong>
+            Active
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>

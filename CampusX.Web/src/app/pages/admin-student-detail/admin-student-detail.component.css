@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+}
+
+.student-detail-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f3f7f5;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #17231d;
+}
+
+.detail-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #e2ebe6;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.detail-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.detail-header p {
+  margin: 6px 0 0;
+  color: #7b847f;
+  font-size: 13px;
+}
+
+.back-button {
+  border: none;
+  background: #050505;
+  color: #8ce0b2;
+  padding: 11px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.student-avatar {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: #8ce0b2;
+  color: #07120c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.student-name {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.student-name h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status.active {
+  background: #e7f8ee;
+  color: #2c8957;
+}
+
+.status.inactive {
+  background: #fdecec;
+  color: #bd4747;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.detail-item {
+  background: #f9fcfa;
+  border: 1px solid #e7efea;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.detail-item label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #6e7973;
+  margin-bottom: 8px;
+}
+
+.detail-item p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #17231d;
+}
+
+@media (max-width: 700px) {
+  .student-detail-page {
+    padding: 20px;
+  }
+
+  .detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}
