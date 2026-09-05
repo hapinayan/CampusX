@@ -1,0 +1,103 @@
+<div class="notifications-page">
+
+  <div class="page-header">
+
+    <div>
+      <h1>Notifications</h1>
+      <p>View your latest CampusX updates</p>
+    </div>
+
+    <button
+      type="button"
+      class="back-button"
+      (click)="goToDashboard()"
+    >
+      ← Dashboard
+    </button>
+
+  </div>
+
+
+  <div
+    *ngIf="message"
+    class="message"
+  >
+    {{ message }}
+  </div>
+
+
+  <div
+    *ngIf="notifications.length > 0"
+    class="notification-list"
+  >
+
+    <div
+      *ngFor="let notification of notifications"
+      class="notification-card"
+      [class.unread]="!notification.isRead"
+    >
+
+      <div class="notification-icon">
+        🔔
+      </div>
+
+      <div class="notification-content">
+
+        <div class="notification-top">
+
+          <h3>
+            {{ notification.title }}
+          </h3>
+
+          <span
+            *ngIf="!notification.isRead"
+            class="unread-badge"
+          >
+            New
+          </span>
+
+        </div>
+
+        <p>
+          {{ notification.message }}
+        </p>
+
+        <small>
+          {{ notification.createdAt | date:'medium' }}
+        </small>
+
+      </div>
+
+
+      <button
+        *ngIf="!notification.isRead"
+        type="button"
+        class="read-button"
+        (click)="markAsRead(notification.id)"
+      >
+        Mark as Read
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div
+    *ngIf="notifications.length === 0"
+    class="empty-state"
+  >
+
+    <div class="empty-icon">
+      🔕
+    </div>
+
+    <h2>No notifications yet</h2>
+
+    <p>
+      Your CampusX notifications will appear here.
+    </p>
+
+  </div>
+
+</div>

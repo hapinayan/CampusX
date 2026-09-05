@@ -20,12 +20,12 @@
       </a>
 
       <a
-  class="menu-item"
-  (click)="goToProfile()"
->
-  <span>👤</span>
-  My Profile
-</a>
+        class="menu-item"
+        (click)="goToProfile()"
+      >
+        <span>👤</span>
+        My Profile
+      </a>
 
       <a class="menu-item">
         <span>🏢</span>
@@ -57,7 +57,11 @@
         Fee Payments
       </a>
 
-      <a class="menu-item">
+      <!-- NOTIFICATIONS -->
+      <a
+        class="menu-item"
+        (click)="goToNotifications()"
+      >
         <span>🔔</span>
         Notifications
       </a>
@@ -65,11 +69,11 @@
     </nav>
 
     <button
-  class="logout-button"
-  (click)="logout()"
->
-  ↪ Logout
-</button>
+      class="logout-button"
+      (click)="logout()"
+    >
+      ↪ Logout
+    </button>
 
   </aside>
 
@@ -87,15 +91,25 @@
 
       <div class="topbar-right">
 
-        <button class="notification-button">
-          🔔
-          <span class="notification-dot"></span>
-        </button>
+        <!-- NOTIFICATION BUTTON -->
+        <button
+  class="notification-button"
+  (click)="goToNotifications()"
+>
+  🔔
+
+  <span
+    *ngIf="unreadCount > 0"
+    class="notification-count"
+  >
+    {{ unreadCount }}
+  </span>
+</button>
 
         <div class="user-profile">
 
           <div class="avatar">
-            S
+            {{ fullName.charAt(0) }}
           </div>
 
           <div>
@@ -128,9 +142,12 @@
           events and requests from one place.
         </p>
 
-        <button (click)="goToProfile()">
-  View My Profile
-</button>
+        <button
+          type="button"
+          (click)="goToProfile()"
+        >
+          View My Profile
+        </button>
 
       </div>
 
@@ -145,17 +162,23 @@
     <section class="services-section">
 
       <div class="section-heading">
+
         <div>
           <h2>Campus Services</h2>
           <p>Quick access to your services</p>
         </div>
+
       </div>
 
 
       <div class="service-grid">
 
+        <!-- HOSTEL -->
         <div class="service-card">
-          <div class="service-icon">🏢</div>
+
+          <div class="service-icon">
+            🏢
+          </div>
 
           <h3>Hostel</h3>
 
@@ -164,11 +187,16 @@
           </p>
 
           <a>Open Service →</a>
+
         </div>
 
 
+        <!-- LAB -->
         <div class="service-card">
-          <div class="service-icon">💻</div>
+
+          <div class="service-icon">
+            💻
+          </div>
 
           <h3>Lab Reservation</h3>
 
@@ -177,11 +205,16 @@
           </p>
 
           <a>Open Service →</a>
+
         </div>
 
 
+        <!-- EVENTS -->
         <div class="service-card">
-          <div class="service-icon">📅</div>
+
+          <div class="service-icon">
+            📅
+          </div>
 
           <h3>Events</h3>
 
@@ -190,11 +223,16 @@
           </p>
 
           <a>Open Service →</a>
+
         </div>
 
 
+        <!-- COMPLAINTS -->
         <div class="service-card">
-          <div class="service-icon">💬</div>
+
+          <div class="service-icon">
+            💬
+          </div>
 
           <h3>Complaints</h3>
 
@@ -203,11 +241,16 @@
           </p>
 
           <a>Open Service →</a>
+
         </div>
 
 
+        <!-- CERTIFICATES -->
         <div class="service-card">
-          <div class="service-icon">📄</div>
+
+          <div class="service-icon">
+            📄
+          </div>
 
           <h3>Certificates</h3>
 
@@ -216,11 +259,16 @@
           </p>
 
           <a>Open Service →</a>
+
         </div>
 
 
+        <!-- FEE PAYMENTS -->
         <div class="service-card">
-          <div class="service-icon">💳</div>
+
+          <div class="service-icon">
+            💳
+          </div>
 
           <h3>Fee Payments</h3>
 
@@ -229,6 +277,7 @@
           </p>
 
           <a>Open Service →</a>
+
         </div>
 
       </div>
@@ -239,36 +288,60 @@
     <!-- BOTTOM AREA -->
     <section class="bottom-grid">
 
+      <!-- RECENT ACTIVITY -->
       <div class="activity-card">
 
         <div class="card-title">
+
           <h3>Recent Activity</h3>
-          <a>View All</a>
+
+          <a>
+            View All
+          </a>
+
         </div>
 
         <div class="empty-state">
+
           <span>📋</span>
+
           <h4>No recent activity</h4>
-          <p>Your latest campus activities will appear here.</p>
+
+          <p>
+            Your latest campus activities will appear here.
+          </p>
+
         </div>
 
       </div>
 
 
+      <!-- NOTIFICATIONS -->
       <div class="notification-card">
 
         <div class="card-title">
+
           <h3>Notifications</h3>
-          <a>View All</a>
+
+          <a
+            (click)="goToNotifications()"
+          >
+            View All
+          </a>
+
         </div>
 
         <div class="notification-item">
-          <div class="small-icon">🔔</div>
+
+          <div class="small-icon">
+            🔔
+          </div>
 
           <div>
             <strong>Welcome to CampusX</strong>
             <p>Your student portal is ready.</p>
           </div>
+
         </div>
 
       </div>

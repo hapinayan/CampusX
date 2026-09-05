@@ -164,6 +164,19 @@ namespace CampusX.Api.Controllers
                 });
             }
 
+            // Remove this student's notification read records first
+            var notificationReads =
+                await _context.NotificationReads
+                    .Where(r => r.StudentId == id)
+                    .ToListAsync();
+
+            if (notificationReads.Count > 0)
+            {
+                _context.NotificationReads
+                    .RemoveRange(notificationReads);
+            }
+
+            // Delete student
             _context.Students.Remove(student);
 
             await _context.SaveChangesAsync();

@@ -14,6 +14,10 @@ import { AdminStudentDetailComponent } from './pages/admin-student-detail/admin-
 import { authGuard } from './guards/auth.guard';
 import { adminGuard } from './guards/admin.guard';
 
+import { StudentNotificationsComponent } from './pages/student-notifications/student-notifications.component';
+import { AdminNotificationsComponent } from './pages/admin-notifications/admin-notifications.component';
+
+
 export const routes: Routes = [
 
   {
@@ -65,6 +69,18 @@ export const routes: Routes = [
     path: 'student-profile',
     component: StudentProfileComponent,
     canActivate: [authGuard]
-  }
+  },
+
+  {
+  path: 'student-notifications',
+  component: StudentNotificationsComponent,
+  canActivate: [authGuard]
+},
+
+{
+  path: 'admin-notifications',
+  component: AdminNotificationsComponent,
+  canActivate: [adminGuard]
+}
 
 ];

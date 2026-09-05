@@ -659,3 +659,33 @@
     font-size: 25px;
   }
 }
+
+/* NOTIFICATION COUNT BADGE */
+
+.notification-button {
+  position: relative;
+}
+
+.notification-count {
+  position: absolute;
+  top: -6px;
+  right: -7px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #58ffbe;
+  color: #07110d;
+
+  border: 2px solid #0b0b0b;
+  border-radius: 20px;
+
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+}

@@ -14,11 +14,13 @@
 
     <nav class="menu">
 
+      <!-- DASHBOARD -->
       <a class="menu-item active">
         <span>🏠</span>
         Dashboard
       </a>
 
+      <!-- STUDENTS -->
       <a
         class="menu-item"
         (click)="goToStudents()"
@@ -27,43 +29,55 @@
         Students
       </a>
 
+      <!-- HOSTEL -->
       <a class="menu-item">
         <span>🏢</span>
         Hostel
       </a>
 
+      <!-- LAB -->
       <a class="menu-item">
         <span>💻</span>
         Lab Reservations
       </a>
 
+      <!-- EVENTS -->
       <a class="menu-item">
         <span>📅</span>
         Events
       </a>
 
+      <!-- COMPLAINTS -->
       <a class="menu-item">
         <span>💬</span>
         Complaints
       </a>
 
+      <!-- CERTIFICATES -->
       <a class="menu-item">
         <span>📄</span>
         Certificates
       </a>
 
+      <!-- FEE PAYMENTS -->
       <a class="menu-item">
         <span>💳</span>
         Fee Payments
       </a>
 
-      <a class="menu-item">
+      <!-- NOTIFICATIONS -->
+      <a
+        class="menu-item"
+        (click)="goToNotifications()"
+      >
         <span>🔔</span>
         Notifications
       </a>
 
     </nav>
 
+
+    <!-- LOGOUT -->
     <button
       class="logout-button"
       (click)="logout()"
@@ -87,11 +101,17 @@
 
       <div class="topbar-right">
 
-        <button class="notification-button">
+        <!-- NOTIFICATION BUTTON -->
+        <button
+          class="notification-button"
+          (click)="goToNotifications()"
+        >
           🔔
           <span class="notification-dot"></span>
         </button>
 
+
+        <!-- ADMIN PROFILE -->
         <div class="admin-profile">
 
           <div class="avatar">
@@ -161,7 +181,9 @@
             {{ totalStudents }}
           </h3>
 
-          <p>Registered students</p>
+          <p>
+            Registered students
+          </p>
         </div>
 
       </div>
@@ -181,7 +203,9 @@
             {{ activeStudents }}
           </h3>
 
-          <p>Active accounts</p>
+          <p>
+            Active accounts
+          </p>
         </div>
 
       </div>
@@ -201,14 +225,19 @@
             {{ inactiveStudents }}
           </h3>
 
-          <p>Inactive accounts</p>
+          <p>
+            Inactive accounts
+          </p>
         </div>
 
       </div>
 
 
       <!-- NOTIFICATIONS -->
-      <div class="stat-card">
+      <div
+        class="stat-card"
+        (click)="goToNotifications()"
+      >
 
         <div class="stat-icon">
           🔔
@@ -217,9 +246,13 @@
         <div>
           <span>Notifications</span>
 
-          <h3>--</h3>
+          <h3>
+  {{ totalNotifications }}
+</h3>
 
-          <p>System notifications</p>
+          <p>
+            System notifications
+          </p>
         </div>
 
       </div>
@@ -232,7 +265,9 @@
 
       <div class="section-title">
 
-        <h2>Administration</h2>
+        <h2>
+          Administration
+        </h2>
 
         <p>
           Quick access to CampusX management services
@@ -314,6 +349,32 @@
 
         </div>
 
+
+        <!-- NOTIFICATION MANAGEMENT -->
+        <div class="management-card">
+
+          <div class="card-icon">
+            🔔
+          </div>
+
+          <h3>
+            Notification Management
+          </h3>
+
+          <p>
+            Create notifications for all students
+            or send notifications to a specific student.
+          </p>
+
+          <button
+            type="button"
+            (click)="goToNotifications()"
+          >
+            Manage Notifications →
+          </button>
+
+        </div>
+
       </div>
 
     </section>
@@ -380,6 +441,7 @@
           </strong>
 
         </div>
+
 
         <div class="status-row">
 

@@ -17,6 +17,8 @@ export class AdminDashboardComponent implements OnInit {
   activeStudents = 0;
   inactiveStudents = 0;
 
+  totalNotifications = 0;
+
   constructor(
     private router: Router,
     private http: HttpClient
@@ -25,10 +27,17 @@ export class AdminDashboardComponent implements OnInit {
       sessionStorage.getItem('fullName') || 'Administrator';
   }
 
+
   ngOnInit(): void {
+
     this.loadStudentCounts();
+
+    this.loadNotificationCount();
+
   }
 
+
+  // LOAD STUDENT COUNTS
   loadStudentCounts() {
 
     this.http
@@ -36,6 +45,7 @@ export class AdminDashboardComponent implements OnInit {
         'https://localhost:7182/api/students'
       )
       .subscribe({
+
         next: (students) => {
 
           this.totalStudents = students.length;
@@ -50,25 +60,89 @@ export class AdminDashboardComponent implements OnInit {
               student => !student.isActive
             ).length;
 
-          console.log('Dashboard student counts loaded');
+          console.log(
+            'Dashboard student counts loaded'
+          );
         },
 
         error: (error) => {
+
           console.log(
             'Failed to load dashboard counts',
             error
           );
+
         }
+
       });
+
   }
 
+
+  // LOAD NOTIFICATION COUNT
+  loadNotificationCount() {
+
+    this.http
+      .get<any[]>(
+        'https://localhost:7182/api/notifications'
+      )
+      .subscribe({
+
+        next: (notifications) => {
+
+          this.totalNotifications =
+            notifications.length;
+
+          console.log(
+            'Notification count:',
+            this.totalNotifications
+          );
+
+        },
+
+        error: (error) => {
+
+          console.log(
+            'Failed to load notification count',
+            error
+          );
+
+        }
+
+      });
+
+  }
+
+
+  // GO TO STUDENTS
   goToStudents() {
-    this.router.navigate(['/admin-students']);
+
+    this.router.navigate([
+      '/admin-students'
+    ]);
+
   }
 
+
+  // GO TO NOTIFICATIONS
+  goToNotifications() {
+
+    this.router.navigate([
+      '/admin-notifications'
+    ]);
+
+  }
+
+
+  // LOGOUT
   logout() {
+
     sessionStorage.clear();
-    this.router.navigate(['/admin-login']);
+
+    this.router.navigate([
+      '/admin-login'
+    ]);
+
   }
 
 }
