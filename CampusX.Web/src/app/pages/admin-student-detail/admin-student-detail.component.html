@@ -1,0 +1,125 @@
+<div class="student-detail-page">
+
+  <div class="detail-card">
+
+    <!-- HEADER -->
+    <div class="detail-header">
+
+      <div>
+        <h1>Student Details</h1>
+        <p>View complete student account information</p>
+      </div>
+
+      <button
+        type="button"
+        class="back-button"
+        (click)="goBack()"
+      >
+        ← Students
+      </button>
+
+    </div>
+
+
+    <!-- ERROR MESSAGE -->
+    <div *ngIf="message" class="message">
+      {{ message }}
+    </div>
+
+
+    <!-- REAL STUDENT DATA -->
+    <div *ngIf="student">
+
+      <!-- AVATAR -->
+      <div class="student-avatar">
+        {{ student.fullName?.charAt(0) }}
+      </div>
+
+
+      <!-- NAME + STATUS -->
+      <div class="student-name">
+
+        <h2>
+          {{ student.fullName }}
+        </h2>
+
+        <span
+          class="status"
+          [class.active]="student.isActive"
+          [class.inactive]="!student.isActive"
+        >
+          {{ student.isActive ? 'Active' : 'Inactive' }}
+        </span>
+
+      </div>
+
+
+      <!-- STUDENT DETAILS -->
+      <div class="details-grid">
+
+        <div class="detail-item">
+          <label>Index Number</label>
+          <p>{{ student.indexNumber }}</p>
+        </div>
+
+
+        <div class="detail-item">
+          <label>Full Name</label>
+          <p>{{ student.fullName }}</p>
+        </div>
+
+
+        <div class="detail-item">
+          <label>Email</label>
+          <p>{{ student.email }}</p>
+        </div>
+
+
+        <div class="detail-item">
+          <label>Faculty</label>
+          <p>{{ student.faculty }}</p>
+        </div>
+
+
+        <div class="detail-item">
+          <label>Contact Number</label>
+          <p>
+            {{ student.contactNumber || 'Not provided' }}
+          </p>
+        </div>
+
+
+        <div class="detail-item">
+          <label>Account Status</label>
+          <p>
+            {{ student.isActive ? 'Active' : 'Inactive' }}
+          </p>
+        </div>
+
+
+        <div class="detail-item">
+          <label>Registered Date</label>
+          <p>
+            {{ student.createdAt | date:'medium' }}
+          </p>
+        </div>
+
+
+        <div class="detail-item">
+          <label>Last Updated</label>
+          <p>
+            {{
+              student.updatedAt
+                ? (student.updatedAt | date:'medium')
+                : 'Not updated yet'
+            }}
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

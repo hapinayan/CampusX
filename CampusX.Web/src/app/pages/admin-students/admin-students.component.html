@@ -1,0 +1,301 @@
+<div class="students-page">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+
+    <div>
+      <h1>Student Management</h1>
+      <p>View and manage CampusX student accounts</p>
+    </div>
+
+    <button
+      type="button"
+      class="back-button"
+      (click)="goToDashboard()"
+    >
+      ← Dashboard
+    </button>
+
+  </div>
+
+
+  <!-- MESSAGE -->
+  <div *ngIf="message" class="message">
+    {{ message }}
+  </div>
+
+
+  <!-- SEARCH AND FILTER -->
+  <div class="filter-card">
+
+    <div class="search-box">
+
+      <label>Search Students</label>
+
+      <input
+        type="text"
+        name="search"
+        [(ngModel)]="search"
+        placeholder="Search by name, index number or email"
+      />
+
+    </div>
+
+
+    <div class="faculty-filter">
+
+      <label>Faculty</label>
+
+      <select
+        name="faculty"
+        [(ngModel)]="faculty"
+      >
+        <option value="">All Faculties</option>
+        <option value="Computing">Computing</option>
+        <option value="Business">Business</option>
+        <option value="Engineering">Engineering</option>
+        <option value="Science">Science</option>
+      </select>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="search-button"
+      (click)="searchStudents()"
+    >
+      Search
+    </button>
+
+  </div>
+
+
+  <!-- STUDENT TABLE -->
+  <div class="table-card">
+
+    <div class="table-header">
+
+      <div>
+        <h2>Students</h2>
+
+        <p>
+          Registered CampusX students
+          ({{ students.length }})
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Index Number</th>
+            <th>Student</th>
+            <th>Email</th>
+            <th>Faculty</th>
+            <th>Contact</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+          <tr *ngFor="let student of students">
+
+            <!-- INDEX NUMBER -->
+            <td>
+              {{ student.indexNumber }}
+            </td>
+
+
+            <!-- STUDENT -->
+            <td>
+
+              <div class="student-info">
+
+                <div class="student-avatar">
+                  {{ student.fullName?.charAt(0) }}
+                </div>
+
+                <strong>
+                  {{ student.fullName }}
+                </strong>
+
+              </div>
+
+            </td>
+
+
+            <!-- EMAIL -->
+            <td>
+              {{ student.email }}
+            </td>
+
+
+            <!-- FACULTY -->
+            <td>
+
+              <span class="faculty-badge">
+                {{ student.faculty }}
+              </span>
+
+            </td>
+
+
+            <!-- CONTACT -->
+            <td>
+              {{ student.contactNumber || 'Not provided' }}
+            </td>
+
+
+            <!-- STATUS -->
+            <td>
+
+              <span
+                class="status"
+                [class.active]="student.isActive"
+                [class.inactive]="!student.isActive"
+              >
+                {{ student.isActive ? 'Active' : 'Inactive' }}
+              </span>
+
+            </td>
+
+
+            <!-- ACTIONS -->
+            <td>
+
+              <div class="actions">
+
+                <!-- VIEW -->
+                <button
+                  type="button"
+                  class="view-button"
+                  (click)="viewStudent(student.id)"
+                >
+                  View
+                </button>
+
+
+                <!-- DEACTIVATE -->
+                <button
+                  *ngIf="student.isActive"
+                  type="button"
+                  class="deactivate-button"
+                  (click)="deactivateStudent(student.id)"
+                >
+                  Deactivate
+                </button>
+
+
+                <!-- ACTIVATE -->
+                <button
+                  *ngIf="!student.isActive"
+                  type="button"
+                  class="activate-button"
+                  (click)="activateStudent(student.id)"
+                >
+                  Activate
+                </button>
+
+
+                <!-- DELETE -->
+                <button
+                  type="button"
+                  class="delete-button"
+                  (click)="openDeletePopup(
+                    student.id,
+                    student.fullName
+                  )"
+                >
+                  Delete
+                </button>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+
+          <!-- NO STUDENTS -->
+          <tr *ngIf="students.length === 0">
+
+            <td
+              colspan="7"
+              style="text-align: center; padding: 35px;"
+            >
+              No students found
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+
+  <!-- DELETE CONFIRMATION POPUP -->
+  <div
+    *ngIf="showDeletePopup"
+    class="popup-overlay"
+  >
+
+    <div class="delete-popup">
+
+      <div class="popup-icon">
+        🗑️
+      </div>
+
+      <h2>
+        Delete Student?
+      </h2>
+
+      <p>
+        Are you sure you want to permanently delete
+        <strong>{{ selectedStudentName }}</strong>?
+      </p>
+
+      <span class="warning-text">
+        This action cannot be undone.
+      </span>
+
+
+      <div class="popup-actions">
+
+        <button
+          type="button"
+          class="cancel-popup-button"
+          (click)="closeDeletePopup()"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="confirm-delete-button"
+          (click)="confirmDeleteStudent()"
+        >
+          Delete Student
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

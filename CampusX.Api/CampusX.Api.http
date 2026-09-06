@@ -3,4 +3,211 @@
 GET {{CampusX.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
+
 ###
+
+
+POST http://localhost:5291/api/students/register
+Content-Type: application/json
+
+{
+  "indexNumber": "ST001",
+  "fullName": "Test Student",
+  "email": "teststudent@campusx.com",
+  "faculty": "Computing",
+  "contactNumber": "0771234567",
+  "password": "Test@123"
+}
+###
+POST http://localhost:5291/api/students/register
+Content-Type: application/json
+
+{
+  "indexNumber": "ST001",
+  "fullName": "Test Student",
+  "email": "teststudent@campusx.com",
+  "faculty": "Computing",
+  "contactNumber": "0771234567",
+  "password": "Test@123"
+}
+
+### Student Login
+POST http://localhost:5291/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "teststudent@campusx.com",
+  "password": "Test@123"
+}
+
+### Student Login
+POST http://localhost:5291/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "teststudent@campusx.com",
+  "password": "Test@123"
+}
+
+  ###
+  GET https://localhost:7182/api/students/profile
+
+  ### Login and get token
+POST https://localhost:7182/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "teststudent@campusx.com",
+  "password": "Test@123"
+}
+
+### Protected Profile
+GET https://localhost:7182/api/students/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVGVzdCBTdHVkZW50IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoidGVzdHN0dWRlbnRAY2FtcHVzeC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdHVkZW50IiwiZXhwIjoxNzg4NDYzNTM5LCJpc3MiOiJDYW1wdXNYQXBpIiwiYXVkIjoiQ2FtcHVzWFdlYiJ9.w5Ac7EO_CGKmDpM1bilVSHx4LyRVNyVh6msh-ZnM58M
+
+
+###
+GET https://localhost:7182/api/students/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVGVzdCBTdHVkZW50IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoidGVzdHN0dWRlbnRAY2FtcHVzeC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdHVkZW50IiwiZXhwIjoxNzg4NDYzNTM5LCJpc3MiOiJDYW1wdXNYQXBpIiwiYXVkIjoiQ2FtcHVzWFdlYiJ9.w5Ac7EO_CGKmDpM1bilVSHx4LyRVNyVh6msh-ZnM58M
+
+###
+GET https://localhost:7182/api/students/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVGVzdCBTdHVkZW50IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoidGVzdHN0dWRlbnRAY2FtcHVzeC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdHVkZW50IiwiZXhwIjoxNzg4NDYzNTM5LCJpc3MiOiJDYW1wdXNYQXBpIiwiYXVkIjoiQ2FtcHVzWFdlYiJ9.w5Ac7EO_CGKmDpM1bilVSHx4LyRVNyVh6msh-ZnM58M
+
+### Update Student Profile
+PUT https://localhost:7182/api/students/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVGVzdCBTdHVkZW50IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoidGVzdHN0dWRlbnRAY2FtcHVzeC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdHVkZW50IiwiZXhwIjoxNzg4NDYzNTM5LCJpc3MiOiJDYW1wdXNYQXBpIiwiYXVkIjoiQ2FtcHVzWFdlYiJ9.w5Ac7EO_CGKmDpM1bilVSHx4LyRVNyVh6msh-ZnM58M
+
+{
+  "fullName": "Test Student Updated",
+  "email": "teststudent@campusx.com",
+  "faculty": "Computing",
+  "contactNumber": "0779999999"
+}
+
+### Admin Login
+POST https://localhost:7182/api/admin-auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@campusx.com",
+  "password": "Admin@123"
+}
+
+### Admin Login
+POST https://localhost:7182/api/admin-auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@campusx.com",
+  "password": "Admin@123"
+}
+
+### Admin - Get All Students
+GET https://localhost:7182/api/students
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQ2FtcHVzWCBBZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGNhbXB1c3guY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3ODg1MDgyMjIsImlzcyI6IkNhbXB1c1hBcGkiLCJhdWQiOiJDYW1wdXNYV2ViIn0.Iuu4NCOSSNQV-yrNCQAlGWUGJmbFTm04ngXKIFRUMnk
+
+
+### Admin Login
+POST https://localhost:7182/api/admin-auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@campusx.com",
+  "password": "Admin@123"
+}
+
+
+###
+GET https://localhost:7182/api/students/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQ2FtcHVzWCBBZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGNhbXB1c3guY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3ODg1MjU1NDksImlzcyI6IkNhbXB1c1hBcGkiLCJhdWQiOiJDYW1wdXNYV2ViIn0.i9cvI1G90ZKdZ_wGICuHxPnUCP-2RBdCMYDOLLKlrK4
+
+### Deactivate Student
+PUT https://localhost:7182/api/students/1/deactivate
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQ2FtcHVzWCBBZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGNhbXB1c3guY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3ODg1MjU1NDksImlzcyI6IkNhbXB1c1hBcGkiLCJhdWQiOiJDYW1wdXNYV2ViIn0.i9cvI1G90ZKdZ_wGICuHxPnUCP-2RBdCMYDOLLKlrK4
+
+
+### Student Login
+POST https://localhost:7182/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "teststudent@campusx.com",
+  "password": "Test@123"
+}
+
+###
+PUT https://localhost:7182/api/students/1/activate
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQ2FtcHVzWCBBZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGNhbXB1c3guY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3ODg1MjU1NDksImlzcyI6IkNhbXB1c1hBcGkiLCJhdWQiOiJDYW1wdXNYV2ViIn0.i9cvI1G90ZKdZ_wGICuHxPnUCP-2RBdCMYDOLLKlrK4
+
+###
+DELETE https://localhost:7182/api/students/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQ2FtcHVzWCBBZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGNhbXB1c3guY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3ODg1MjU1NDksImlzcyI6IkNhbXB1c1hBcGkiLCJhdWQiOiJDYW1wdXNYV2ViIn0.i9cvI1G90ZKdZ_wGICuHxPnUCP-2RBdCMYDOLLKlrK4
+
+### Create a new student for deletion test
+POST http://localhost:5291/api/students/register
+Content-Type: application/json
+
+{
+  "indexNumber": "ST002",
+  "fullName": "Delete Test Student",
+  "email": "deletetest@campusx.com",
+  "faculty": "Computing",
+  "contactNumber": "0771234567",
+  "password": "Test@123"
+}
+
+###
+POST https://localhost:7182/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "teststudent@campusx.com",
+  "password": "Test@123"
+}
+
+
+###
+POST https://localhost:7182/api/admin-auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@campusx.com",
+  "password": "Admin@123"
+}
+
+
+###
+POST https://localhost:7182/api/notifications
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQ2FtcHVzWCBBZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGNhbXB1c3guY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3ODg2MzQyOTAsImlzcyI6IkNhbXB1c1hBcGkiLCJhdWQiOiJDYW1wdXNYV2ViIn0.HcS9B8T0aknVmlJdrKTlaaZbJcBpooT9UYdPkovtTkM
+
+{
+  "studentId": null,
+  "title": "CampusX Test Notification",
+  "message": "This is a test notification for all students."
+}
+
+
+###
+POST https://localhost:7182/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "newstudent@campusx.com",
+  "password": "Test@123"
+}
+
+###
+GET https://localhost:7182/api/notifications/my
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjMiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSGFwaW5heWFuIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibmV3c3R1ZGVudEBjYW1wdXN4LmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlN0dWRlbnQiLCJleHAiOjE3ODg2MzQ1MDgsImlzcyI6IkNhbXB1c1hBcGkiLCJhdWQiOiJDYW1wdXNYV2ViIn0.hwccJIg9kMhTFqnA0gRepMfDcHwrsntjKRr3_UHEXXQ
+
+
+###
+PUT https://localhost:7182/api/notifications/1/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjMiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSGFwaW5heWFuIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibmV3c3R1ZGVudEBjYW1wdXN4LmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlN0dWRlbnQiLCJleHAiOjE3ODg2MzQ1MDgsImlzcyI6IkNhbXB1c1hBcGkiLCJhdWQiOiJDYW1wdXNYV2ViIn0.hwccJIg9kMhTFqnA0gRepMfDcHwrsntjKRr3_UHEXXQ
+
+###
+GET https://localhost:7182/api/notifications/unread-count
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjMiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSGFwaW5heWFuIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibmV3c3R1ZGVudEBjYW1wdXN4LmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlN0dWRlbnQiLCJleHAiOjE3ODg2MzQ1MDgsImlzcyI6IkNhbXB1c1hBcGkiLCJhdWQiOiJDYW1wdXNYV2ViIn0.hwccJIg9kMhTFqnA0gRepMfDcHwrsntjKRr3_UHEXXQ

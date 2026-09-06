@@ -1,0 +1,353 @@
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brand-icon">CX</div>
+
+      <div>
+        <h2>CampusX</h2>
+        <span>Student Portal</span>
+      </div>
+    </div>
+
+    <nav class="menu">
+
+      <a class="menu-item active">
+        <span>🏠</span>
+        Dashboard
+      </a>
+
+      <a
+        class="menu-item"
+        (click)="goToProfile()"
+      >
+        <span>👤</span>
+        My Profile
+      </a>
+
+      <a class="menu-item">
+        <span>🏢</span>
+        Hostel
+      </a>
+
+      <a class="menu-item">
+        <span>💻</span>
+        Lab Reservation
+      </a>
+
+      <a class="menu-item">
+        <span>📅</span>
+        Events
+      </a>
+
+      <a class="menu-item">
+        <span>💬</span>
+        Complaints
+      </a>
+
+      <a class="menu-item">
+        <span>📄</span>
+        Certificates
+      </a>
+
+      <a class="menu-item">
+        <span>💳</span>
+        Fee Payments
+      </a>
+
+      <!-- NOTIFICATIONS -->
+      <a
+        class="menu-item"
+        (click)="goToNotifications()"
+      >
+        <span>🔔</span>
+        Notifications
+      </a>
+
+    </nav>
+
+    <button
+      class="logout-button"
+      (click)="logout()"
+    >
+      ↪ Logout
+    </button>
+
+  </aside>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+      <div>
+        <h1>Dashboard</h1>
+        <p>Welcome back to CampusX</p>
+      </div>
+
+      <div class="topbar-right">
+
+        <!-- NOTIFICATION BUTTON -->
+        <button
+  class="notification-button"
+  (click)="goToNotifications()"
+>
+  🔔
+
+  <span
+    *ngIf="unreadCount > 0"
+    class="notification-count"
+  >
+    {{ unreadCount }}
+  </span>
+</button>
+
+        <div class="user-profile">
+
+          <div class="avatar">
+            {{ fullName.charAt(0) }}
+          </div>
+
+          <div>
+            <strong>{{ fullName }}</strong>
+            <span>CampusX Student</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- WELCOME CARD -->
+    <section class="welcome-card">
+
+      <div class="welcome-text">
+
+        <span class="welcome-label">
+          STUDENT PORTAL
+        </span>
+
+        <h2>
+          Welcome to CampusX 👋
+        </h2>
+
+        <p>
+          Manage your university services, reservations,
+          events and requests from one place.
+        </p>
+
+        <button
+          type="button"
+          (click)="goToProfile()"
+        >
+          View My Profile
+        </button>
+
+      </div>
+
+      <div class="welcome-art">
+        🎓
+      </div>
+
+    </section>
+
+
+    <!-- QUICK SERVICES -->
+    <section class="services-section">
+
+      <div class="section-heading">
+
+        <div>
+          <h2>Campus Services</h2>
+          <p>Quick access to your services</p>
+        </div>
+
+      </div>
+
+
+      <div class="service-grid">
+
+        <!-- HOSTEL -->
+        <div class="service-card">
+
+          <div class="service-icon">
+            🏢
+          </div>
+
+          <h3>Hostel</h3>
+
+          <p>
+            Apply and manage your hostel accommodation.
+          </p>
+
+          <a>Open Service →</a>
+
+        </div>
+
+
+        <!-- LAB -->
+        <div class="service-card">
+
+          <div class="service-icon">
+            💻
+          </div>
+
+          <h3>Lab Reservation</h3>
+
+          <p>
+            Reserve available university laboratory slots.
+          </p>
+
+          <a>Open Service →</a>
+
+        </div>
+
+
+        <!-- EVENTS -->
+        <div class="service-card">
+
+          <div class="service-icon">
+            📅
+          </div>
+
+          <h3>Events</h3>
+
+          <p>
+            Explore and register for campus events.
+          </p>
+
+          <a>Open Service →</a>
+
+        </div>
+
+
+        <!-- COMPLAINTS -->
+        <div class="service-card">
+
+          <div class="service-icon">
+            💬
+          </div>
+
+          <h3>Complaints</h3>
+
+          <p>
+            Submit and track your complaints.
+          </p>
+
+          <a>Open Service →</a>
+
+        </div>
+
+
+        <!-- CERTIFICATES -->
+        <div class="service-card">
+
+          <div class="service-icon">
+            📄
+          </div>
+
+          <h3>Certificates</h3>
+
+          <p>
+            Request and track university certificates.
+          </p>
+
+          <a>Open Service →</a>
+
+        </div>
+
+
+        <!-- FEE PAYMENTS -->
+        <div class="service-card">
+
+          <div class="service-icon">
+            💳
+          </div>
+
+          <h3>Fee Payments</h3>
+
+          <p>
+            View and simulate your campus fee payments.
+          </p>
+
+          <a>Open Service →</a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOTTOM AREA -->
+    <section class="bottom-grid">
+
+      <!-- RECENT ACTIVITY -->
+      <div class="activity-card">
+
+        <div class="card-title">
+
+          <h3>Recent Activity</h3>
+
+          <a>
+            View All
+          </a>
+
+        </div>
+
+        <div class="empty-state">
+
+          <span>📋</span>
+
+          <h4>No recent activity</h4>
+
+          <p>
+            Your latest campus activities will appear here.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- NOTIFICATIONS -->
+      <div class="notification-card">
+
+        <div class="card-title">
+
+          <h3>Notifications</h3>
+
+          <a
+            (click)="goToNotifications()"
+          >
+            View All
+          </a>
+
+        </div>
+
+        <div class="notification-item">
+
+          <div class="small-icon">
+            🔔
+          </div>
+
+          <div>
+            <strong>Welcome to CampusX</strong>
+            <p>Your student portal is ready.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
